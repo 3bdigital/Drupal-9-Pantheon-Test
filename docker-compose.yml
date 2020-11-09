@@ -1,0 +1,28 @@
+version: "3"
+services:
+
+  web:
+    image: 3bdigital/drupal-nginx:7.3-webroot
+    links:
+      - mysql
+    volumes:
+      - .:/var/www:cached
+    ports:
+      - "8090:80"
+
+  mysql:
+    environment:
+      MYSQL_DATABASE: drupal
+      MYSQL_ROOT_PASSWORD: password
+    image: mariadb:10
+    volumes:
+      - ~/docker/data/drupal-9-pantheon-test:/var/lib/mysql:delegated
+    ports:
+      - "8091:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql:db
+    ports:
+      - "8092:80"
