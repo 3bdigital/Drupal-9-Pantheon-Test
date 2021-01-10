@@ -3,8 +3,8 @@ image:
 
 tasks:
   - before: sudo docker-up
-    init: composer install
-    command: docker-compose up
+  - init: composer install
+  - command: docker-compose up
 
 ports:
   - port: 8090
