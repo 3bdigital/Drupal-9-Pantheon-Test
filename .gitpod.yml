@@ -2,8 +2,8 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: composer install
-    command: sudo docker-up
+  - before: sudo docker-up
+    init: composer install
     command: docker-compose up
 
 ports:
