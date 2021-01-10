@@ -1,6 +1,6 @@
 image:
   file: .gitpod.Dockerfile
 
-tasks:
-  - init: composer install
-    command: docker-compose up
+#tasks:
+#  - init: composer install
+#    command: docker-compose up
